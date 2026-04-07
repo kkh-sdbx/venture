@@ -14,6 +14,7 @@ fs.createReadStream("./ventureList2603.csv")
 .on("end",()=>{
     for (let i=0;i<100;i++){
         test.push(ventureList[i]);
+        console.log(test);
     }
     
     /**
@@ -42,7 +43,7 @@ fs.createReadStream("./ventureList2603.csv")
 
 
 
-console.log(test);
+
 
 const result = [];
 
