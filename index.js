@@ -42,7 +42,7 @@ fs.createReadStream("./ventureList2603.csv")
         const url = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${SEARCH_KEY}&cx=${CX_ID}`;
         console.log(url);
         //const res = await axios.get(url);
-        const items = res.data.items;
+        //const items = res.data.items;
         
     }
     //console.log(test);
