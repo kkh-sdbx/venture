@@ -43,7 +43,7 @@ fs.createReadStream("./ventureList2603.csv")
         //console.log(url);
         const res = await axios.get(url);
         const items = res.data.items;
-        
+        console.log(items);
     }
     //console.log(test);
 
