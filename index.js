@@ -44,7 +44,7 @@ fs.createReadStream("./ventureList2603.csv")
         const items = res.data.items;
         console.log(items);
     }
-    console.log(test);
+    //console.log(test);
 
 
     
