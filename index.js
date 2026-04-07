@@ -1,8 +1,13 @@
+require("dotenv").config();
+
 const axios = require("axios");
 const cors = require("cors");
-const expres = require("express");
+const express = require("express");
 const fs = require("fs");
 const csv = require("csv-parser");
+
+const SEARCH_KEY = process.env.SEARCH_KEY;
+const CX_ID = process.env.CX_ID;
 
 // 스키마 : 연번,업체명,이메일 주소,대표자(익명),벤처확인유형,지역,간략주소,업종분류(기보),업종명(11차),주생산품,벤처유효시작일,벤처유효종료일,벤처확인기관,신규/재확인
 const ventureList = [];
@@ -11,13 +16,8 @@ const test = [];
 fs.createReadStream("./ventureList2603.csv")
 .pipe(csv())
 .on("data",(data)=>{ventureList.push(data)})
-.on("end",()=>{
-    for (let i=0;i<100;i++){
-        test.push(ventureList[i]);
-        console.log(test);
-    }
-    
-    /**
+.on("end", async ()=>{
+        /**
      *  [ {
     '연번': '100',
     '업체명': '주식회사 어시스타(ASSISTAR)',
@@ -36,6 +36,19 @@ fs.createReadStream("./ventureList2603.csv")
   },...] 상태임.
 
      */
+    for (let i=0;i<10;i++){
+        test.push(ventureList[i]);
+        const query = encodeURIComponent(`${ventureList[i]["지역"]} ${ventureList[i]["업체명"]} 공식 홈페이지`);
+        const url = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${SEARCH_KEY}&cx=${CX_ID}`;
+        const res = await axios.get(url);
+        const items = res.data.items;
+        console.log(items);
+    }
+    console.log(test);
+
+
+    
+
 });
 
 
@@ -45,7 +58,7 @@ fs.createReadStream("./ventureList2603.csv")
 
 
 
-const result = [];
+//const result = [];
 
 
 
