@@ -6,11 +6,15 @@ const csv = require("csv-parser");
 
 // 스키마 : 연번,업체명,이메일 주소,대표자(익명),벤처확인유형,지역,간략주소,업종분류(기보),업종명(11차),주생산품,벤처유효시작일,벤처유효종료일,벤처확인기관,신규/재확인
 const ventureList = [];
+const test = [];
 
 fs.createReadStream("./ventureList2603.csv")
 .pipe(csv())
 .on("data",(data)=>{ventureList.push(data)})
 .on("end",()=>{
+    for (let i=0;i<100;i++){
+        test.push(ventureList[i]);
+    }
     
     /**
      *  [ {
@@ -35,10 +39,8 @@ fs.createReadStream("./ventureList2603.csv")
 
 
 // 일단 100개만 해 본다.
-const test = [];
-for (let i=0;i<100;i++){
-    test.push(ventureList[i]);
-}
+
+
 
 console.log(test);
 
