@@ -40,9 +40,10 @@ fs.createReadStream("./ventureList2603.csv")
         test.push(ventureList[i]);
         const query = encodeURIComponent(`${ventureList[i]["지역"]} ${ventureList[i]["업체명"]} 공식 홈페이지`);
         const url = `https://www.googleapis.com/customsearch/v1?q=${query}&key=${SEARCH_KEY}&cx=${CX_ID}`;
-        const res = await axios.get(url);
+        console.log(url);
+        //const res = await axios.get(url);
         const items = res.data.items;
-        console.log(items);
+        
     }
     //console.log(test);
 
