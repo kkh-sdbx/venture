@@ -13,7 +13,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const ventureList = [];
 const test = [];
-
+/*
 const rawData = fs.createReadStream("./VENTURE_LIST.csv")
 .pipe(csv())
 .on("data",(data)=>{ventureList.push(data)})
@@ -22,7 +22,7 @@ const rawData = fs.createReadStream("./VENTURE_LIST.csv")
     NUM	COMPANY_NAME	CEO	VENTURE_TYPE	LOCATION	TYPE	TYPE_DETAIL	VENTURE_START_DATE	VENTURE_END_DATE
 1	한솔농산	이**	혁신성장유형	강원	제조업	기타 과실ㆍ채소 가공 및 저장 처리업	20260331	20290330
 2	(주)올곧	최**	혁신성장유형	경북	제조업	냉동식품	20260331	20290330
-*/
+
     for (let i=0;i<10;i++){
 
         test.push(ventureList[i]);
@@ -36,10 +36,10 @@ const rawData = fs.createReadStream("./VENTURE_LIST.csv")
     //console.log(test);
 
 
-    
+   
 
 });
-
+*/
 // 네이버 검색 API 예제 - 블로그 검색
 /*
    var api_url = 'https://openapi.naver.com/v1/search/webkr.json?query=' + encodeURI(req.query.query); // JSON 결과
@@ -52,7 +52,7 @@ const rawData = fs.createReadStream("./VENTURE_LIST.csv")
 */
 
 //const testResult = await axios.fetch('/search/webkr');
-
+console.log(`X-Naver-Client-Id:${CLIENT_ID}, X-Naver-Client-Secret: ${CLIENT_SECRET}`);
 async function searchTest(companyName){
     const naverSearch ='https://openapi.naver.com/v1/search/webkr.json?query=';
     console.log(companyName);
