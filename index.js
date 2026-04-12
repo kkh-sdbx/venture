@@ -51,11 +51,11 @@ const rawData = fs.createReadStream("./VENTURE_LIST.csv")
     };
 */
 
-const testResult = await axios.fetch('/search/webkr')
+//const testResult = await axios.fetch('/search/webkr');
 
-async function searchTest(){
+async function searchTest(companyName){
     const naverSearch ='https://openapi.naver.com/v1/search/webkr.json?query=';
-
+    console.log(companyName);
     try{
         const response = await axios.get(naverSearch,{
             params: {query:"테스트검색"},
