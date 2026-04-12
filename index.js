@@ -54,7 +54,7 @@ const rawData = fs.createReadStream("./VENTURE_LIST.csv")
 //const testResult = await axios.fetch('/search/webkr');
 console.log(`X-Naver-Client-Id:${CLIENT_ID}, X-Naver-Client-Secret: ${CLIENT_SECRET}`);
 async function searchTest(companyName){
-    const naverSearch ='https://openapi.naver.com/v1/search/webkr.json?query=';
+    const naverSearch ='https://openapi.naver.com/v1/search/webkr.json?';
     console.log(companyName);
     try{
         const response = await axios.get(naverSearch,{
